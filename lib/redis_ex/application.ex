@@ -12,11 +12,12 @@ defmodule RedisEx.Application do
       # Start the Telemetry supervisor
       RedisExWeb.Telemetry,
       # Start the PubSub system
-      {Phoenix.PubSub, name: RedisEx.PubSub},
+      # {Phoenix.PubSub, name: RedisEx.PubSub},
       # Start the Endpoint (http/https)
-      RedisExWeb.Endpoint
+      RedisExWeb.Endpoint,
       # Start a worker by calling: RedisEx.Worker.start_link(arg)
       # {RedisEx.Worker, arg}
+      RedisEx.Core.SupervisorSetAgentBucket
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
